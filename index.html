@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fakultas Pertanian Universitas Lampung</title>
+<meta name="description" content="Website Resmi Fakultas Pertanian Universitas Lampung (FP Unila)"/>
+<meta name="google-site-verification" content="SrTZawFSaLAONuV52vjH13dAEw3zOeO0J7W9G7wwpi8" />
+<link rel="icon" href="https://fp.unila.ac.id/wp-content/uploads/2025/10/cropped-Logo-Unila-Statuta-PNG-192x192.png" sizes="32x32" />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ===================== CSS VARIABLES (Theme FP Unila) ===================== */
+:root {
+  --sch-main-color: #03955a;
+  --sch-title-color: #273043;
+  --sch-body-bg-color: #f5f5f5;
+  --sch-bg-color-white: #ffffff;
+  --sch-title-color-white: #ffffff;
+  --sch-body-color-yellow: #B7E1CD;
+  --sch-teks-color-yellow: #0F9D58;
+  --sch-body-bg-black: #273043;
+  --sch-heading-font-family: 'Open Sans', sans-serif;
+  --sch-body-font-family: 'Merriweather', sans-serif;
+  --sch-marquee-title-color: #ffde4f;
+  --sch-before-bg-parallax: linear-gradient(60deg,#023a23ed 50%,#05013357 100%);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-family: sans-serif; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+body { font-family: var(--sch-body-font-family); font-weight: 400; color: var(--sch-title-color); background: var(--sch-body-bg-color); line-height: 1.8rem; word-wrap: break-word; }
+a, a:link, a:visited { text-decoration: none; color: var(--sch-title-color); }
+a:hover { color: var(--sch-main-color); }
+img { max-width: 100%; height: auto; border: 0; }
+h1,h2,h3,h4,h5,h6 { font-weight: 600; line-height: 1.4; font-family: var(--sch-heading-font-family); color: var(--sch-title-color); }
+ul { list-style: none; padding: 0; margin: 0; }
+.container { max-width: 1250px; margin: 0 auto; padding: 0 15px; }
+
+/* ===================== SOCIAL TOP BAR ===================== */
+.social-top { background: var(--sch-main-color); padding: 5px 0; }
+.social-top .container { display: flex; justify-content: space-between; align-items: center; }
+.social-top-left { display: flex; align-items: center; }
+.social-top-left a { color: rgba(255,255,255,0.88); font-size: 12.5px; padding: 4px 11px; display: flex; align-items: center; gap: 5px; border-right: 1px solid rgba(255,255,255,0.2); font-family: var(--sch-heading-font-family); transition: color 0.15s; }
+.social-top-left a:first-child { padding-left: 0; }
+.social-top-left a:hover { color: #fff; }
+.social-top-right { display: flex; align-items: center; gap: 1px; }
+.social-top-right a { color: rgba(255,255,255,0.88); font-size: 13px; padding: 4px 8px; transition: color 0.15s; font-family: var(--sch-heading-font-family); }
+.social-top-right a:hover { color: #fff; }
+.social-top-right .lang-btn { font-size: 11px; font-weight: 700; border: 1px solid rgba(255,255,255,0.35); border-radius: 2px; padding: 2px 7px; margin-left: 5px; }
+
+/* ===================== HEADER ===================== */
+.header-wrapper { background: var(--sch-bg-color-white); box-shadow: 0 0 10px rgba(128,128,128,0.4); position: sticky; top: 0; z-index: 99; width: 100%; }
+#header-wrap { display: flex; align-items: center; max-width: 1250px; margin: 0 auto; padding: 0 15px; height: 90px; position: relative; overflow: hidden; }
+
+/* Left slanted yellow background */
+#header-logo { position: relative; padding: 5px 30px 5px 0; display: flex; align-items: center; gap: 13px; flex-shrink: 0; z-index: 2; }
+#header-logo::before { position: absolute; content: ''; left: -15px; top: 0; bottom: 0; width: 290px; border-right: 38px solid transparent; border-top: 90px solid var(--sch-body-color-yellow); z-index: -1; }
+#header-logo img.logo-img { height: 68px; width: auto; vertical-align: middle; position: relative; z-index: 1; object-fit: contain; }
+
+/* Fallback logo if image fails */
+#header-logo .logo-fallback { width: 68px; height: 68px; border-radius: 50%; background: var(--sch-main-color); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 22px; font-weight: 900; font-family: var(--sch-heading-font-family); flex-shrink: 0; }
+
+.header-logo-text h1 { font-size: 17.5px; font-weight: 800; color: var(--sch-main-color); line-height: 1.2; font-family: var(--sch-heading-font-family); letter-spacing: -0.2px; }
+.header-logo-text p { font-size: 11px; color: #555; margin-top: 2px; font-family: var(--sch-heading-font-family); }
+
+/* Right slanted yellow background */
+.header-box { flex: 1; margin: 0 0 0 16px; display: flex; justify-content: flex-end; align-items: center; position: relative; z-index: 2; }
+.header-box::before { position: absolute; content: ''; right: -15px; top: 0; bottom: 0; width: 175px; border-left: 20px solid transparent; border-bottom: 90px solid var(--sch-body-color-yellow); z-index: -1; }
+
+.header-right-col { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
+.header-search-form { display: flex; }
+.header-search-form input { border: 1px solid #ddd; border-right: none; padding: 7px 14px; font-size: 13px; font-family: var(--sch-heading-font-family); outline: none; border-radius: 3px 0 0 3px; width: 220px; background: #f8f8f8; }
+.header-search-form button { background: var(--sch-main-color); color: #fff; border: none; padding: 7px 13px; cursor: pointer; border-radius: 0 3px 3px 0; font-size: 13px; transition: background 0.2s; }
+.header-search-form button:hover { background: #027a4b; }
+.header-shortlinks { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
+.header-shortlinks a { font-size: 11px; color: var(--sch-title-color); font-family: var(--sch-heading-font-family); background: #f0f7f4; border: 1px solid #cce8d8; padding: 3px 9px; border-radius: 3px; font-weight: 600; transition: all 0.2s; display: flex; align-items: center; gap: 4px; }
+.header-shortlinks a:hover { background: var(--sch-main-color); color: #fff; border-color: var(--sch-main-color); }
+.header-shortlinks a i { font-size: 9px; }
+
+/* ===================== NAVIGATION ===================== */
+.header-menu { background: var(--sch-main-color); box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+#main-menu ul { display: flex; flex-wrap: wrap; max-width: 1250px; margin: 0 auto; padding: 0 15px; }
+#main-menu ul > li { position: relative; margin: 0; transition: background 0.15s; }
+#main-menu ul > li > a { display: inline-flex; align-items: center; gap: 4px; font-size: 13.5px; line-height: 50px; padding: 0 13px; font-weight: 600; color: #fff; font-family: var(--sch-heading-font-family); white-space: nowrap; transition: background 0.15s; }
+#main-menu ul > li > a:hover, #main-menu ul > li.active > a { background: rgba(0,0,0,0.2); color: #fff; }
+#main-menu ul > li > a .chevron { font-size: 9px; }
+
+/* Dropdown */
+#main-menu ul > li > ul { position: absolute; left: 0; top: 100%; border-radius: 0 0 5px 5px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); width: 245px; background: var(--sch-main-color); z-index: 99999; margin: 0; padding: 0; visibility: hidden; opacity: 0; transition: opacity 0.15s, visibility 0.15s; pointer-events: none; }
+#main-menu ul > li:hover > ul { visibility: visible; opacity: 1; pointer-events: all; }
+#main-menu ul > li > ul > li { display: block; }
+#main-menu ul > li > ul > li > a { display: block; font-size: 12.5px; font-weight: 500; padding: 0 15px; line-height: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); border-left: 4px solid rgba(0,0,0,0.22); color: #fff; font-family: var(--sch-heading-font-family); transition: all 0.15s; }
+#main-menu ul > li > ul > li > a:hover { border-left-color: var(--sch-body-color-yellow); color: var(--sch-body-color-yellow); background: rgba(0,0,0,0.15); }
+#main-menu ul > li > ul > li:last-child > a { border-bottom: 0; }
+#main-menu ul > li.has-sub > a::after { content: '\f107'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 9px; margin-left: 3px; }
+
+/* ===================== INFO TICKER ===================== */
+.ticker-bar { background: #fff; border-bottom: 2px solid #d5ece2; overflow: hidden; }
+.ticker-bar .container { display: flex; align-items: stretch; height: 36px; }
+.ticker-label { background: var(--sch-main-color); color: #fff; font-size: 11px; font-weight: 700; padding: 0 14px; font-family: var(--sch-heading-font-family); white-space: nowrap; display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+.ticker-scroller { overflow: hidden; flex: 1; display: flex; align-items: center; }
+.ticker-text { font-size: 12.5px; color: var(--sch-title-color); font-family: var(--sch-heading-font-family); white-space: nowrap; animation: tickerScroll 40s linear infinite; display: inline-block; padding-left: 100%; }
+.ticker-text a { color: var(--sch-main-color); font-weight: 700; }
+@keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+/* ===================== HERO SLIDER ===================== */
+.hero-wrap { position: relative; overflow: hidden; background: #0a2010; }
+.slider-track { display: flex; transition: transform 0.65s cubic-bezier(.25,.8,.25,1); }
+.slide { min-width: 100%; position: relative; }
+.slide .rc-img { padding-top: 44.85%; background-size: cover; background-position: center; position: relative; }
+.slide .rc-img::before { content: ''; position: absolute; inset: 0; background: var(--sch-before-bg-parallax); opacity: 0.82; z-index: 1; }
+
+/* Slide real background images from fp.unila.ac.id */
+.slide-1 .rc-img { background-image: url('https://fp.unila.ac.id/wp-content/uploads/2021/11/gedung-FP-scaled.jpg'); }
+.slide-2 .rc-img { background-image: url('https://fp.unila.ac.id/wp-content/uploads/2022/02/DSC_8700-scaled.jpg'); }
+.slide-3 .rc-img { background-image: url('https://fp.unila.ac.id/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-06-at-10.29.45-scaled.jpg'); }
+.slide-4 .rc-img { background-image: url('https://fp.unila.ac.id/wp-content/uploads/2021/11/slider3-scaled.jpg'); }
+
+.sch-box { position: absolute; top: 50%; transform: translateY(-50%); max-width: 680px; left: 10%; z-index: 10; }
+.sch-box h3 { font-size: 2.15rem; color: #fff; line-height: 1.2; font-weight: 700; margin: 0 0 10px; font-family: var(--sch-heading-font-family); text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+.sch-box p { font-size: 14px; line-height: 1.65; color: #fff; margin: 0; font-family: var(--sch-heading-font-family); text-shadow: 0 1px 6px rgba(0,0,0,0.5); max-width: 520px; }
+.sch-box .btn-more { display: inline-block; margin-top: 18px; padding: 9px 24px; background: var(--sch-main-color); color: #fff; font-size: 13px; font-weight: 700; border-radius: 3px; font-family: var(--sch-heading-font-family); transition: background 0.2s; }
+.sch-box .btn-more:hover { background: #027a4b; color: #fff; }
+
+/* Slide anim on active */
+.slide.is-active .sch-box h3 { animation: fadeInDown 0.9s 0.8s both; }
+.slide.is-active .sch-box p { animation: fadeInRight 0.9s 0.6s both; }
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+
+.owl-prev, .owl-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); color: #fff; width: 55px; height: 55px; font-size: 25px; border: none; cursor: pointer; border-radius: 50%; z-index: 20; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s, background 0.2s, left 0.3s, right 0.3s; }
+.owl-prev { left: -90px; }
+.owl-next { right: -90px; }
+.hero-wrap:hover .owl-prev { opacity: 1; left: 30px; }
+.hero-wrap:hover .owl-next { opacity: 1; right: 30px; }
+.owl-prev:hover, .owl-next:hover { background: var(--sch-main-color); }
+.owl-dots { position: absolute; bottom: 2.5rem; left: 0; right: 0; text-align: center; z-index: 20; }
+.owl-dot { display: inline-block; width: 18px; height: 18px; margin: 3px; border-radius: 50px; border: 2px solid #fff; background: transparent; opacity: 0.7; cursor: pointer; transition: all 0.4s; }
+.owl-dot.active { background: var(--sch-main-color); opacity: 1; }
+
+/* ===================== STATS STRIP ===================== */
+.stats-strip { background: var(--sch-main-color); color: #fff; padding: 15px 0; }
+.stats-strip .container { display: grid; grid-template-columns: repeat(4,1fr); text-align: center; }
+.stat-item { padding: 6px 10px; border-right: 1px solid rgba(255,255,255,0.25); }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-size: 30px; font-weight: 800; line-height: 1; font-family: var(--sch-heading-font-family); }
+.stat-lbl { font-size: 12px; opacity: 0.9; margin-top: 3px; font-family: var(--sch-heading-font-family); }
+
+/* ===================== MAIN 2-COL LAYOUT ===================== */
+.outer-wrapper { background: var(--sch-body-bg-color); }
+.main-layout { max-width: 1250px; margin: 24px auto; padding: 0 15px; display: grid; grid-template-columns: 1fr 310px; gap: 22px; }
+
+/* Section headers */
+.sec-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--sch-main-color); padding-bottom: 7px; margin-bottom: 16px; }
+.sec-head h2 { font-size: 14.5px; font-weight: 800; color: var(--sch-main-color); font-family: var(--sch-heading-font-family); text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 7px; }
+.sec-head h2::before { content: ''; width: 4px; height: 16px; background: var(--sch-main-color); display: inline-block; border-radius: 2px; }
+.sec-head a { font-size: 11.5px; color: var(--sch-main-color); font-weight: 700; font-family: var(--sch-heading-font-family); display: flex; align-items: center; gap: 4px; }
+
+/* ===================== BERITA GRID ===================== */
+.berita-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.b-card { background: #fff; border-radius: 3px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.07); transition: box-shadow 0.2s, transform 0.2s; }
+.b-card:hover { box-shadow: 0 5px 18px rgba(0,0,0,0.13); transform: translateY(-2px); }
+.b-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 380px 1fr; }
+.b-thumb { position: relative; overflow: hidden; background: #d5ece2; }
+.b-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s; }
+.b-card:hover .b-thumb img { transform: scale(1.04); }
+.b-card:not(.featured) .b-thumb { padding-top: 62%; }
+.b-card:not(.featured) .b-thumb img { position: absolute; inset: 0; }
+.b-card.featured .b-thumb { min-height: 230px; }
+.b-body { padding: 15px 16px; }
+.b-cat { display: inline-block; background: var(--sch-main-color); color: #fff; font-size: 10px; padding: 2px 9px; border-radius: 2px; margin-bottom: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-family: var(--sch-heading-font-family); }
+.b-body h3 { font-size: 13px; font-weight: 700; color: var(--sch-title-color); line-height: 1.5; margin-bottom: 7px; font-family: var(--sch-heading-font-family); }
+.b-card.featured .b-body h3 { font-size: 17px; }
+.b-body p { font-size: 12px; color: #666; line-height: 1.7; font-family: var(--sch-heading-font-family); }
+.b-meta { font-size: 11px; color: #aaa; margin-top: 9px; display: flex; align-items: center; gap: 10px; font-family: var(--sch-heading-font-family); flex-wrap: wrap; }
+.b-meta i { color: var(--sch-main-color); font-size: 10px; }
+
+/* Post-list (compact) */
+.post-list { display: flex; flex-direction: column; gap: 12px; }
+.p-item { background: #fff; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); display: flex; overflow: hidden; transition: box-shadow 0.2s; }
+.p-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+.p-thumb { width: 110px; min-width: 110px; min-height: 85px; position: relative; background: #d5ece2; overflow: hidden; flex-shrink: 0; }
+.p-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.p-body { padding: 11px 13px; flex: 1; }
+.p-body h3 { font-size: 12.5px; font-weight: 700; color: var(--sch-title-color); line-height: 1.45; font-family: var(--sch-heading-font-family); }
+.p-body .b-meta { margin-top: 6px; }
+
+/* ===================== SIDEBAR ===================== */
+.sidebar { display: flex; flex-direction: column; gap: 16px; }
+.wid { background: #fff; border-radius: 3px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); overflow: hidden; }
+.wid-title { background: var(--sch-main-color); color: #fff; padding: 10px 14px; font-size: 13.5px; font-weight: 700; font-family: var(--sch-heading-font-family); display: flex; align-items: center; gap: 8px; }
+.wid-body { padding: 12px 14px; }
+
+.ql-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; }
+.ql-btn { display: flex; flex-direction: column; align-items: center; gap: 5px; background: #f2faf6; border: 1px solid #cce8d8; border-radius: 4px; padding: 10px 6px; text-align: center; cursor: pointer; transition: all 0.2s; font-size: 10.5px; font-weight: 700; color: var(--sch-title-color); font-family: var(--sch-heading-font-family); }
+.ql-btn i { font-size: 18px; color: var(--sch-main-color); }
+.ql-btn:hover { background: var(--sch-main-color); color: #fff; }
+.ql-btn:hover i { color: #fff; }
+
+.ann-ul li { display: flex; gap: 8px; padding: 9px 0; border-bottom: 1px solid #f0f0f0; }
+.ann-ul li:last-child { border-bottom: none; }
+.ann-ul li .bul { color: var(--sch-main-color); font-size: 14px; flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+.ann-ul li .ann-a a { font-size: 12px; color: var(--sch-title-color); line-height: 1.4; font-family: var(--sch-heading-font-family); font-weight: 500; }
+.ann-ul li .ann-a a:hover { color: var(--sch-main-color); }
+.ann-ul li .ann-d { font-size: 10.5px; color: #aaa; display: block; margin-top: 3px; font-family: var(--sch-heading-font-family); }
+.see-all-link { font-size: 11.5px; color: var(--sch-main-color); font-weight: 700; font-family: var(--sch-heading-font-family); display: block; text-align: right; margin-top: 8px; }
+
+.agenda-row { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid #f0f0f0; }
+.agenda-row:last-child { border-bottom: none; }
+.ag-date { background: var(--sch-main-color); color: #fff; min-width: 46px; height: 46px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 4px; flex-shrink: 0; font-family: var(--sch-heading-font-family); }
+.ag-date .d { font-size: 19px; font-weight: 800; line-height: 1; }
+.ag-date .m { font-size: 10px; text-transform: uppercase; }
+.ag-info h4 { font-size: 12px; font-weight: 700; color: var(--sch-title-color); margin-bottom: 3px; font-family: var(--sch-heading-font-family); }
+.ag-info p { font-size: 11px; color: #888; font-family: var(--sch-heading-font-family); }
+.ag-info p i { font-size: 10px; color: var(--sch-main-color); margin-right: 3px; }
+
+.stat-g { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sg-box { background: #f2faf6; border: 1px solid #cce8d8; border-radius: 4px; padding: 12px 8px; text-align: center; }
+.sg-box .n { font-size: 24px; font-weight: 800; color: var(--sch-main-color); font-family: var(--sch-heading-font-family); line-height: 1; }
+.sg-box .l { font-size: 10.5px; color: #666; margin-top: 3px; font-family: var(--sch-heading-font-family); }
+
+.ci p { display: flex; gap: 8px; font-size: 12px; color: #444; line-height: 1.6; margin-bottom: 7px; font-family: var(--sch-heading-font-family); }
+.ci p i { color: var(--sch-main-color); flex-shrink: 0; margin-top: 3px; width: 14px; font-size: 11px; }
+.ci p a { color: var(--sch-main-color); }
+
+/* ===================== PROGRAM STUDI ===================== */
+.prodi-sec { background: #fff; border-top: 3px solid var(--sch-main-color); padding: 22px 0 26px; margin-top: 0; }
+.prodi-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 10px; margin-top: 14px; }
+.prodi-card { background: #f5fbf8; border: 1px solid #cce8d8; border-radius: 5px; padding: 14px 10px; text-align: center; cursor: pointer; transition: all 0.2s; }
+.prodi-card:hover { background: var(--sch-main-color); transform: translateY(-3px); box-shadow: 0 6px 16px rgba(3,149,90,0.3); }
+.prodi-card i { font-size: 26px; color: var(--sch-main-color); margin-bottom: 7px; display: block; }
+.prodi-card:hover i { color: #fff; }
+.prodi-card h4 { font-size: 11px; font-weight: 700; color: var(--sch-title-color); font-family: var(--sch-heading-font-family); line-height: 1.3; }
+.prodi-card:hover h4 { color: #fff; }
+.prodi-card span { font-size: 10px; color: #999; display: block; margin-top: 3px; font-family: var(--sch-heading-font-family); }
+.prodi-card:hover span { color: rgba(255,255,255,0.8); }
+
+/* ===================== FOOTER ===================== */
+footer { background: #0e1f15; color: #ccc; padding: 36px 0 0; }
+footer .container { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 28px; }
+footer h4 { color: #fff; font-size: 14px; margin-bottom: 12px; border-bottom: 2px solid var(--sch-main-color); padding-bottom: 7px; font-family: var(--sch-heading-font-family); }
+.f-about { display: flex; flex-direction: column; gap: 10px; }
+.f-logo { height: 65px; width: auto; margin-bottom: 4px; }
+.f-about p { font-size: 12px; line-height: 1.8; font-family: var(--sch-heading-font-family); }
+.f-social { display: flex; gap: 7px; margin-top: 6px; }
+.f-social a { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; transition: background 0.2s; }
+.f-social a:hover { background: var(--sch-main-color); }
+footer ul li { font-size: 12px; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-family: var(--sch-heading-font-family); }
+footer ul li a { color: #ccc; display: flex; align-items: center; gap: 6px; transition: color 0.15s; }
+footer ul li a:hover { color: var(--sch-main-color); }
+footer ul li a i { font-size: 10px; color: var(--sch-main-color); flex-shrink: 0; }
+.f-contact li { display: flex; gap: 8px; align-items: flex-start; }
+.f-contact li i { color: var(--sch-main-color); flex-shrink: 0; margin-top: 4px; font-size: 11px; width: 12px; }
+.f-bottom { background: #081510; text-align: center; padding: 12px; font-size: 11.5px; color: #666; margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.05); font-family: var(--sch-heading-font-family); }
+.f-bottom a { color: var(--sch-main-color); }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) { .main-layout { grid-template-columns: 1fr; } .prodi-grid { grid-template-columns: repeat(3,1fr); } footer .container { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) { #header-wrap { height: 70px; } #header-logo::before { width: 200px; border-top-width: 70px; } #header-logo img.logo-img { height: 50px; } .header-logo-text h1 { font-size: 14px; } .header-box::before { display: none; } .header-shortlinks { display: none; } .berita-grid { grid-template-columns: 1fr; } .b-card.featured { grid-template-columns: 1fr; } .prodi-grid { grid-template-columns: repeat(2,1fr); } .stat-item { padding: 5px; } .stat-num { font-size: 22px; } footer .container { grid-template-columns: 1fr; } #main-menu ul { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; } }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP SOCIAL BAR ===== -->
+<div class="social-top">
+  <div class="container">
+    <div class="social-top-left">
+      <a href="#"><i class="fa fa-map-marker-alt"></i> Jl. Sumantri Brojonegoro No.01, Bandar Lampung</a>
+      <a href="tel:07213696066"><i class="fa fa-phone"></i> (0721) 781036</a>
+      <a href="mailto:dekanfp@fp.unila.ac.id"><i class="fa fa-envelope"></i> dekanfp@fp.unila.ac.id</a>
+    </div>
+    <div class="social-top-right">
+      <a href="https://www.facebook.com/fp.unila" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com/fp_unila" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/fp_unila_official" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@FPUnila" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="#" class="lang-btn">ID</a>
+      <a href="#" class="lang-btn">EN</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<div class="header-wrapper">
+  <div id="header-wrap">
+    <div id="header-logo">
+      <!-- Logo gambar asli dari fp.unila.ac.id -->
+      <img class="logo-img"
+           src="https://fp.unila.ac.id/wp-content/uploads/2021/11/footer-logoo.png"
+           alt="Logo Fakultas Pertanian Universitas Lampung"
+           onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';"/>
+      <div class="logo-fallback" id="logo-fallback" style="display:none;">FP</div>
+      <div class="header-logo-text">
+        <h1>FAKULTAS PERTANIAN</h1>
+        <p>UNIVERSITAS LAMPUNG</p>
+      </div>
+    </div>
+    <div class="header-box">
+      <div class="header-right-col">
+        <div class="header-search-form">
+          <input type="text" placeholder="Cari di sini..."/>
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+        <div class="header-shortlinks">
+          <a href="http://siakadu.unila.ac.id" target="_blank"><i class="fa fa-sign-in-alt"></i> SIAKAD</a>
+          <a href="#"><i class="fa fa-book-open"></i> E-Learning</a>
+          <a href="https://jurnal.fp.unila.ac.id" target="_blank"><i class="fa fa-journal-whills"></i> E-Journal</a>
+          <a href="https://pmb.unila.ac.id" target="_blank"><i class="fa fa-graduation-cap"></i> PMB</a>
+          <a href="#"><i class="fa fa-id-card"></i> Alumni</a>
+          <a href="#"><i class="fa fa-download"></i> Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NAVIGATION ===== -->
+<div class="header-menu">
+  <nav id="main-menu">
+    <ul>
+      <li class="active">
+        <a href="https://fp.unila.ac.id/"><i class="fa fa-home" style="font-size:13px"></i> Beranda</a>
+      </li>
+      <li class="has-sub">
+        <a href="#">Profil</a>
+        <ul>
+          <li><a href="#">Sejarah Singkat</a></li>
+          <li><a href="#">Visi, Misi dan Tujuan</a></li>
+          <li><a href="#">Pimpinan Fakultas</a></li>
+          <li><a href="#">Struktur Organisasi</a></li>
+          <li><a href="#">Tenaga Pendidik</a></li>
+          <li><a href="#">Tenaga Kependidikan</a></li>
+          <li><a href="#">Sarana dan Prasarana</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <a href="#">Jurusan</a>
+        <ul>
+          <li><a href="https://agroteknologi.fp.unila.ac.id">Agroteknologi</a></li>
+          <li><a href="https://agribisnis.fp.unila.ac.id">Agribisnis</a></li>
+          <li><a href="https://thp.fp.unila.ac.id">Teknologi Hasil Pertanian</a></li>
+          <li><a href="https://hutan.fp.unila.ac.id">Kehutanan</a></li>
+          <li><a href="#">Peternakan</a></li>
+          <li><a href="#">Perikanan &amp; Kelautan</a></li>
+          <li><a href="https://ilmutanah.fp.unila.ac.id">Ilmu Tanah</a></li>
+          <li><a href="https://protekta.fp.unila.ac.id">Proteksi Tanaman</a></li>
+          <li><a href="#">Teknik Pertanian</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <a href="#">Akademik</a>
+        <ul>
+          <li><a href="#">Kalender Akademik</a></li>
+          <li><a href="#">Kurikulum</a></li>
+          <li><a href="#">Jadwal Kuliah</a></li>
+          <li><a href="#">Yudisium</a></li>
+          <li><a href="#">Wisuda</a></li>
+          <li><a href="#">Peraturan Akademik</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <a href="#">Penelitian</a>
+        <ul>
+          <li><a href="https://jurnal.fp.unila.ac.id">Jurnal Ilmiah</a></li>
+          <li><a href="#">Penelitian Dosen</a></li>
+          <li><a href="#">Publikasi</a></li>
+          <li><a href="#">HKI / Paten</a></li>
+          <li><a href="#">Kerjasama Penelitian</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <a href="#">Kemahasiswaan</a>
+        <ul>
+          <li><a href="#">Beasiswa</a></li>
+          <li><a href="#">Organisasi Mahasiswa</a></li>
+          <li><a href="#">BEM Fakultas</a></li>
+          <li><a href="#">Prestasi Mahasiswa</a></li>
+          <li><a href="#">Kegiatan Mahasiswa</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <a href="#">Laboratorium</a>
+        <ul>
+          <li><a href="#">Lab. Ilmu Tanaman</a></li>
+          <li><a href="#">Lab. Analisis Kimia</a></li>
+          <li><a href="#">Lab. Mikrobiologi</a></li>
+          <li><a href="#">Lab. Lapangan Terpadu</a></li>
+          <li><a href="#">Semua Laboratorium</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <a href="#">Informasi</a>
+        <ul>
+          <li><a href="#">Berita &amp; Kegiatan</a></li>
+          <li><a href="#">Pengumuman</a></li>
+          <li><a href="#">Agenda</a></li>
+          <li><a href="#">Galeri Foto</a></li>
+          <li><a href="#">Video</a></li>
+          <li><a href="#">Download</a></li>
+          <li><a href="#">Hubungi Kami</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ===== INFO TICKER ===== -->
+<div class="ticker-bar">
+  <div class="container">
+    <div class="ticker-label"><i class="fa fa-rss"></i> INFO</div>
+    <div class="ticker-scroller">
+      <span class="ticker-text">
+        🌿 Selamat Datang di Website Resmi Fakultas Pertanian Universitas Lampung &nbsp;|&nbsp;
+        📢 Pendaftaran Mahasiswa Baru T.A. 2025/2026 Dibuka – <a href="#">Daftar Sekarang</a> &nbsp;|&nbsp;
+        🏆 Puncak Dies Natalis Ke-52 FP Unila – 18 November 2025 &nbsp;|&nbsp;
+        📚 Yudisium FP Unila dilaksanakan setiap bulan – <a href="#">Jadwal Yudisium</a> &nbsp;|&nbsp;
+        🔬 28 Guru Besar aktif di Fakultas Pertanian Unila &nbsp;|&nbsp;
+        🎓 5 Mahasiswa THP FP Unila Goes to Vietnam dalam Program Pertukaran Pelajar Internasional
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HERO SLIDER ===== -->
+<div class="hero-wrap">
+  <div class="slider-track" id="sliderTrack">
+    <div class="slide slide-1 is-active">
+      <div class="rc-img">
+        <div class="sch-box">
+          <h3>SELAMAT DATANG DI<br/>FAKULTAS PERTANIAN UNILA</h3>
+          <p>Pusat Pendidikan, Riset, dan Inovasi Biomassa Tropika Berbasis Potensi Daerah Lampung</p>
+          <a href="https://fp.unila.ac.id/" class="btn-more">Selengkapnya</a>
+        </div>
+      </div>
+    </div>
+    <div class="slide slide-2">
+      <div class="rc-img">
+        <div class="sch-box">
+          <h3>UNGGUL DALAM PENELITIAN<br/>DAN INOVASI PERTANIAN</h3>
+          <p>15 Program Studi S1 · 5 Program Magister · 1 Program Doktor · 26 Laboratorium Aktif</p>
+          <a href="#" class="btn-more">Program Studi</a>
+        </div>
+      </div>
+    </div>
+    <div class="slide slide-3">
+      <div class="rc-img">
+        <div class="sch-box">
+          <h3>RAIH PRESTASI<br/>TINGKAT INTERNASIONAL</h3>
+          <p>Youth International Science Fair · Olimpiade Sains Nasional · Pilmapres LLDIKTI Wilayah II</p>
+          <a href="#" class="btn-more">Lihat Prestasi</a>
+        </div>
+      </div>
+    </div>
+    <div class="slide slide-4">
+      <div class="rc-img">
+        <div class="sch-box">
+          <h3>KERJASAMA NASIONAL<br/>DAN INTERNASIONAL</h3>
+          <p>Kemitraan dengan PT Syngenta, BPTP Lampung, An Giang University Vietnam, dan berbagai institusi</p>
+          <a href="#" class="btn-more">Kerjasama</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="owl-prev" onclick="slideMove(-1)">&#10094;</button>
+  <button class="owl-next" onclick="slideMove(1)">&#10095;</button>
+  <div class="owl-dots" id="owlDots">
+    <span class="owl-dot active" onclick="slideTo(0)"></span>
+    <span class="owl-dot" onclick="slideTo(1)"></span>
+    <span class="owl-dot" onclick="slideTo(2)"></span>
+    <span class="owl-dot" onclick="slideTo(3)"></span>
+  </div>
+</div>
+
+<!-- ===== STATS STRIP ===== -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stat-item"><div class="stat-num">28</div><div class="stat-lbl">Guru Besar</div></div>
+    <div class="stat-item"><div class="stat-num">15</div><div class="stat-lbl">Program Studi S1</div></div>
+    <div class="stat-item"><div class="stat-num">26</div><div class="stat-lbl">Laboratorium</div></div>
+    <div class="stat-item"><div class="stat-num">1967</div><div class="stat-lbl">Tahun Berdiri</div></div>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT ===== -->
+<div class="outer-wrapper">
+  <div class="main-layout">
+
+    <!-- CONTENT -->
+    <div>
+      <!-- BERITA TERBARU -->
+      <div class="sec-head">
+        <h2>Berita Terbaru</h2>
+        <a href="#">Lihat Semua <i class="fa fa-chevron-right" style="font-size:9px"></i></a>
+      </div>
+      <div class="berita-grid">
+        <!-- Featured -->
+        <div class="b-card featured">
+          <div class="b-thumb">
+            <img src="https://fp.unila.ac.id/wp-content/uploads/2025/08/pkkmb-faperta-2025.jpg"
+                 onerror="this.src='https://fp.unila.ac.id/wp-content/uploads/2022/02/DSC_8700-scaled.jpg'"
+                 alt="PKKMB FP Unila 2025"/>
+          </div>
+          <div class="b-body">
+            <span class="b-cat">Berita Utama</span>
+            <h3>Tanamkan Budaya Akademik Melalui PKKMB FP Unila 2025</h3>
+            <p>Fakultas Pertanian (FP) Universitas Lampung mengadakan kegiatan Pengenalan Kehidupan Kampus bagi Mahasiswa Baru (PKKMB) tingkat fakultas di Gedung Aula FP Unila, pada Selasa 19 Agustus 2025, dengan diikuti mahasiswa baru dari berbagai program studi secara hybrid.</p>
+            <div class="b-meta"><i class="fa fa-calendar"></i> 19 Agustus 2025 &nbsp;<i class="fa fa-user"></i> Admin FP Unila</div>
+          </div>
+        </div>
+        <!-- Post 2 -->
+        <div class="b-card">
+          <div class="b-thumb">
+            <img src="https://fp.unila.ac.id/wp-content/uploads/2025/10/penelitian-jagung-prg-syngenta.jpg"
+                 onerror="this.src='https://fp.unila.ac.id/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-06-at-10.29.45-scaled.jpg'"
+                 alt="Penelitian PRG"/>
+          </div>
+          <div class="b-body">
+            <span class="b-cat">Penelitian</span>
+            <h3>FP Unila Kembangkan Jagung PRG Tahan Hama Bersama PT Syngenta Seed Indonesia</h3>
+            <div class="b-meta"><i class="fa fa-calendar"></i> 03 Oktober 2025</div>
+          </div>
+        </div>
+        <!-- Post 3 -->
+        <div class="b-card">
+          <div class="b-thumb">
+            <img src="https://fp.unila.ac.id/wp-content/uploads/2024/11/mahasiswa-thp-vietnam.jpg"
+                 onerror="this.src='https://fp.unila.ac.id/wp-content/uploads/2021/11/gedung-FP-scaled.jpg'"
+                 alt="THP Vietnam"/>
+          </div>
+          <div class="b-body">
+            <span class="b-cat">Kerjasama</span>
+            <h3>5 Mahasiswa THP FP Unila Berangkat ke An Giang University Vietnam</h3>
+            <div class="b-meta"><i class="fa fa-calendar"></i> 20 November 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEGIATAN LIST -->
+      <div class="sec-head" style="margin-top:22px">
+        <h2>Kegiatan &amp; Pengumuman</h2>
+        <a href="#">Lihat Semua <i class="fa fa-chevron-right" style="font-size:9px"></i></a>
+      </div>
+      <div class="post-list">
+        <div class="p-item">
+          <div class="p-thumb">
+            <img src="https://fp.unila.ac.id/wp-content/uploads/2026/01/yudisium-fp-januari-2026.jpg"
+                 onerror="this.src='https://fp.unila.ac.id/wp-content/uploads/2021/11/slider3-scaled.jpg'"
+                 alt="Yudisium"/>
+          </div>
+          <div class="p-body">
+            <span class="b-cat">Akademik</span>
+            <h3>Yudisium Fakultas Pertanian Periode Januari 2026</h3>
+            <div class="b-meta"><i class="fa fa-calendar"></i> 26 Januari 2026 &nbsp;<i class="fa fa-user"></i> Admin</div>
+          </div>
+        </div>
+        <div class="p-item">
+          <div class="p-thumb">
+            <img src="https://fp.unila.ac.id/wp-content/uploads/2025/11/dies-natalis-52-fp-unila.jpg"
+                 onerror="this.src='https://fp.unila.ac.id/wp-content/uploads/2022/02/DSC_8700-scaled.jpg'"
+                 alt="Dies Natalis"/>
+          </div>
+          <div class="p-body">
+            <span class="b-cat">Kegiatan</span>
+            <h3>Puncak Dies Natalis Ke-52 Fakultas Pertanian Universitas Lampung</h3>
+            <div class="b-meta"><i class="fa fa-calendar"></i> 18 November 2025 &nbsp;<i class="fa fa-user"></i> Admin</div>
+          </div>
+        </div>
+        <div class="p-item">
+          <div class="p-thumb">
+            <img src="https://fp.unila.ac.id/wp-content/uploads/2025/08/pkkmb-fp-papermob.jpg"
+                 onerror="this.src='https://fp.unila.ac.id/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-06-at-10.29.45-scaled.jpg'"
+                 alt="Papermob"/>
+          </div>
+          <div class="p-body">
+            <span class="b-cat">Kegiatan</span>
+            <h3>FP Adakan Papermob PKKMB Sambut 1.419 Mahasiswa Baru Angkatan 2025</h3>
+            <div class="b-meta"><i class="fa fa-calendar"></i> 19 Agustus 2025 &nbsp;<i class="fa fa-user"></i> Admin</div>
+          </div>
+        </div>
+        <div class="p-item">
+          <div class="p-thumb">
+            <img src="https://fp.unila.ac.id/wp-content/uploads/2025/02/jadwal-kuliah-genap-2025.jpg"
+                 onerror="this.src='https://fp.unila.ac.id/wp-content/uploads/2021/11/gedung-FP-scaled.jpg'"
+                 alt="Jadwal Kuliah"/>
+          </div>
+          <div class="p-body">
+            <span class="b-cat">Pengumuman</span>
+            <h3>Pengumuman Perkuliahan dan Praktikum Semester Genap T.A. 2024/2025</h3>
+            <div class="b-meta"><i class="fa fa-calendar"></i> 04 Februari 2025 &nbsp;<i class="fa fa-user"></i> Admin FP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- AKSES CEPAT -->
+      <div class="wid">
+        <div class="wid-title"><i class="fa fa-th-large"></i> Akses Cepat</div>
+        <div class="wid-body">
+          <div class="ql-grid">
+            <div class="ql-btn"><i class="fa fa-sign-in-alt"></i><span>SIAKAD</span></div>
+            <div class="ql-btn"><i class="fa fa-book-open"></i><span>E-Learning</span></div>
+            <div class="ql-btn"><i class="fa fa-journal-whills"></i><span>E-Journal</span></div>
+            <div class="ql-btn"><i class="fa fa-graduation-cap"></i><span>PMB</span></div>
+            <div class="ql-btn"><i class="fa fa-download"></i><span>Download</span></div>
+            <div class="ql-btn"><i class="fa fa-id-card"></i><span>Alumni</span></div>
+            <div class="ql-btn"><i class="fa fa-map-marked-alt"></i><span>Tracer Study</span></div>
+            <div class="ql-btn"><i class="fa fa-flask"></i><span>Laboratorium</span></div>
+            <div class="ql-btn"><i class="fa fa-shield-alt"></i><span>PPID</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PENGUMUMAN -->
+      <div class="wid">
+        <div class="wid-title"><i class="fa fa-bullhorn"></i> Pengumuman</div>
+        <div class="wid-body">
+          <ul class="ann-ul">
+            <li>
+              <span class="bul">›</span>
+              <div class="ann-a">
+                <a href="#">Jadwal Yudisium FP Unila Semester Ganjil 2025/2026</a>
+                <span class="ann-d"><i class="fa fa-calendar" style="font-size:9px"></i> 15 Mei 2025</span>
+              </div>
+            </li>
+            <li>
+              <span class="bul">›</span>
+              <div class="ann-a">
+                <a href="#">Pengumuman Nomor: 1173/UN26.14/TU.00.02/2025 untuk Mahasiswa Angkatan 2019</a>
+                <span class="ann-d"><i class="fa fa-calendar" style="font-size:9px"></i> 04 Maret 2025</span>
+              </div>
+            </li>
+            <li>
+              <span class="bul">›</span>
+              <div class="ann-a">
+                <a href="#">Jadwal Ujian Akhir Semester Genap T.A. 2024/2025</a>
+                <span class="ann-d"><i class="fa fa-calendar" style="font-size:9px"></i> 09 Juni 2025</span>
+              </div>
+            </li>
+            <li>
+              <span class="bul">›</span>
+              <div class="ann-a">
+                <a href="#">Pendaftaran Beasiswa Bidikmisi &amp; KIP-K TA 2025/2026</a>
+                <span class="ann-d"><i class="fa fa-calendar" style="font-size:9px"></i> 01 Maret 2025</span>
+              </div>
+            </li>
+            <li>
+              <span class="bul">›</span>
+              <div class="ann-a">
+                <a href="#">Form Wisuda FP Unila Terbaru untuk Wisuda Maret 2025</a>
+                <span class="ann-d"><i class="fa fa-calendar" style="font-size:9px"></i> 30 Januari 2025</span>
+              </div>
+            </li>
+          </ul>
+          <a href="#" class="see-all-link">Lihat Semua Pengumuman »</a>
+        </div>
+      </div>
+
+      <!-- AGENDA -->
+      <div class="wid">
+        <div class="wid-title"><i class="fa fa-calendar-alt"></i> Agenda Kegiatan</div>
+        <div class="wid-body">
+          <div class="agenda-row">
+            <div class="ag-date"><span class="d">26</span><span class="m">Jan</span></div>
+            <div class="ag-info">
+              <h4>Yudisium FP Periode Januari 2026</h4>
+              <p><i class="fa fa-map-marker-alt"></i> Aula Gedung D FP Unila</p>
+            </div>
+          </div>
+          <div class="agenda-row">
+            <div class="ag-date"><span class="d">17</span><span class="m">Mei</span></div>
+            <div class="ag-info">
+              <h4>Pelaksanaan Upacara Wisuda Unila</h4>
+              <p><i class="fa fa-map-marker-alt"></i> Gedung Serba Guna Unila</p>
+            </div>
+          </div>
+          <div class="agenda-row">
+            <div class="ag-date"><span class="d">10</span><span class="m">Feb</span></div>
+            <div class="ag-info">
+              <h4>Awal Perkuliahan Semester Genap 2024/2025</h4>
+              <p><i class="fa fa-map-marker-alt"></i> Kampus FP Unila</p>
+            </div>
+          </div>
+          <a href="#" class="see-all-link">Lihat Semua Agenda »</a>
+        </div>
+      </div>
+
+      <!-- STATISTIK -->
+      <div class="wid">
+        <div class="wid-title"><i class="fa fa-chart-bar"></i> Statistik Fakultas</div>
+        <div class="wid-body">
+          <div class="stat-g">
+            <div class="sg-box"><div class="n">28</div><div class="l">Guru Besar</div></div>
+            <div class="sg-box"><div class="n">15</div><div class="l">Prodi S1</div></div>
+            <div class="sg-box"><div class="n">5</div><div class="l">Prodi S2</div></div>
+            <div class="sg-box"><div class="n">1</div><div class="l">Prodi S3</div></div>
+            <div class="sg-box"><div class="n">26</div><div class="l">Laboratorium</div></div>
+            <div class="sg-box"><div class="n">57+</div><div class="l">Tahun Berdiri</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KONTAK -->
+      <div class="wid">
+        <div class="wid-title"><i class="fa fa-info-circle"></i> Kontak</div>
+        <div class="wid-body ci">
+          <p><i class="fa fa-map-marker-alt"></i>Jl. Sumantri Brojonegoro No. 01, Gedong Meneng, Rajabasa, Bandar Lampung 35141</p>
+          <p><i class="fa fa-phone"></i>(0721) 781036</p>
+          <p><i class="fa fa-envelope"></i><a href="mailto:dekanfp@fp.unila.ac.id">dekanfp@fp.unila.ac.id</a></p>
+          <p><i class="fa fa-globe"></i><a href="https://fp.unila.ac.id" target="_blank">fp.unila.ac.id</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROGRAM STUDI ===== -->
+<div class="prodi-sec">
+  <div class="container">
+    <div class="sec-head">
+      <h2>Program Studi</h2>
+      <a href="#">Lihat Semua <i class="fa fa-chevron-right" style="font-size:9px"></i></a>
+    </div>
+    <div class="prodi-grid">
+      <div class="prodi-card"><i class="fa fa-seedling"></i><h4>Agroteknologi</h4><span>S1</span></div>
+      <div class="prodi-card"><i class="fa fa-chart-line"></i><h4>Agribisnis</h4><span>S1</span></div>
+      <div class="prodi-card"><i class="fa fa-industry"></i><h4>Teknologi Hasil Pertanian</h4><span>S1</span></div>
+      <div class="prodi-card"><i class="fa fa-tree"></i><h4>Kehutanan</h4><span>S1</span></div>
+      <div class="prodi-card"><i class="fa fa-horse"></i><h4>Peternakan</h4><span>S1</span></div>
+      <div class="prodi-card"><i class="fa fa-fish"></i><h4>Perikanan &amp; Kelautan</h4><span>S1</span></div>
+      <div class="prodi-card"><i class="fa fa-mountain"></i><h4>Ilmu Tanah</h4><span>S1</span></div>
+      <div class="prodi-card"><i class="fa fa-bug"></i><h4>Proteksi Tanaman</h4><span>S1</span></div>
+      <div class="prodi-card"><i class="fa fa-cogs"></i><h4>Teknik Pertanian</h4><span>S1</span></div>
+      <div class="prodi-card"><i class="fa fa-water"></i><h4>Budidaya Perairan</h4><span>S1</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="f-about">
+      <!-- Logo footer — gambar asli dari server FP Unila -->
+      <img src="https://fp.unila.ac.id/wp-content/uploads/2021/11/footer-logoo.png"
+           class="f-logo" alt="Logo FP Unila"
+           onerror="this.style.display='none'"/>
+      <h4>Fakultas Pertanian Universitas Lampung</h4>
+      <p>Fakultas Pertanian Universitas Lampung (FP Unila) berdiri sejak 20 November 1967. Memiliki 28 Guru Besar, 15 Program Studi S1, 5 Program Magister, dan 1 Program Doktor, serta 26 laboratorium yang aktif mendukung kegiatan akademik dan penelitian.</p>
+      <div class="f-social">
+        <a href="https://www.facebook.com/fp.unila" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/fp_unila" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/fp_unila_official" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@FPUnila" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div>
+      <h4>Tautan Cepat</h4>
+      <ul>
+        <li><a href="#"><i class="fa fa-angle-right"></i> Beranda</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i> Profil Fakultas</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i> Program Studi</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i> Akademik</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i> Penelitian</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i> Kemahasiswaan</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i> Laboratorium</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i> Galeri Foto</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Layanan Online</h4>
+      <ul>
+        <li><a href="http://siakadu.unila.ac.id" target="_blank"><i class="fa fa-angle-right"></i> SIAKAD Unila</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i> E-Learning</a></li>
+        <li><a href="https://jurnal.fp.unila.ac.id" target="_blank"><i class="fa fa-angle-right"></i> E-Journal FP</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i> Repository</a></li>
+        <li><a href="https://pmb.unila.ac.id" target="_blank"><i class="fa fa-angle-right"></i> PMB Online</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i> Tracer Study</a></li>
+        <li><a href="https://ppid-fp.unila.ac.id" target="_blank"><i class="fa fa-angle-right"></i> PPID FP Unila</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i> Alumni</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Alamat</h4>
+      <ul class="f-contact">
+        <li><i class="fa fa-map-marker-alt"></i><span>Jl. Sumantri Brojonegoro No. 01, Gedong Meneng, Rajabasa, Bandar Lampung 35141</span></li>
+        <li><i class="fa fa-phone"></i><span>(0721) 781036</span></li>
+        <li><i class="fa fa-fax"></i><span>(0721) 781036</span></li>
+        <li><i class="fa fa-envelope"></i><span>dekanfp@fp.unila.ac.id</span></li>
+        <li><i class="fa fa-globe"></i><span><a href="https://fp.unila.ac.id" target="_blank" style="color:#ccc">fp.unila.ac.id</a></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bottom">
+    &copy; 2025 Fakultas Pertanian Universitas Lampung. All Rights Reserved &nbsp;|&nbsp;
+    Dikembangkan oleh <a href="#">TIM IT FP Unila</a>
+  </div>
+</footer>
+
+<script>
+// ===== HERO SLIDER =====
+let cur = 0;
+const total = 4;
+const track = document.getElementById('sliderTrack');
+const dots = document.querySelectorAll('.owl-dot');
+const slides = document.querySelectorAll('.slide');
+
+function slideTo(n) {
+  slides[cur].classList.remove('is-active');
+  cur = (n + total) % total;
+  track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+  dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+  slides[cur].classList.add('is-active');
+}
+function slideMove(dir) { slideTo(cur + dir); }
+
+// Auto-play
+let auto = setInterval(() => slideMove(1), 5500);
+const heroWrap = document.querySelector('.hero-wrap');
+heroWrap.addEventListener('mouseenter', () => clearInterval(auto));
+heroWrap.addEventListener('mouseleave', () => { auto = setInterval(() => slideMove(1), 5500); });
+
+// Touch/swipe support
+let touchStartX = 0;
+heroWrap.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+heroWrap.addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) slideMove(diff > 0 ? 1 : -1);
+});
+</script>
+</body>
+</html>
